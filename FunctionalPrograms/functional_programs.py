@@ -6,11 +6,8 @@
     @Title: Functionalities for various functional programs
 '''
 import logging
-from pickle import TRUE
 import random
 import sys
-
-from numpy import number
 
 class FunctionalPrograms:
 
@@ -135,3 +132,45 @@ class FunctionalPrograms:
         except ValueError:
             logging.exception("Invalid input for number")
             logging.warning("Input must be integer")
+    
+    def gambler():
+        """
+            Description:
+                Simulates a gambler who start with $stake and place fair $1 bets until goes broke or reach $goal. 
+                Keeps track of the number of wins and the number of bets.
+        """
+        bets_dict = {}
+        no_of_wins = 0
+        total_no_bets = 0
+        stake = int(input("Enter stake($): "))
+        goal = int(input("Enter goal($): "))
+        repeat_no = int(input("Enter no of times to repeat: "))
+        if stake < 1 or goal < 1 or repeat_no < 1:
+            logging.warning("Input no must be greater than 1")
+            return None
+        if stake > goal:
+            logging.warning("Goal must be greater than stake")
+            return None
+        for i in range(1, repeat_no+1):
+            cash_in_hand = stake
+            game_bets_total = 0
+            while True:
+                gamble_sucess = random.choice([0,1])
+                game_bets_total += 1
+                if gamble_sucess:
+                    cash_in_hand += 1
+                else:
+                    cash_in_hand -= 1
+                if cash_in_hand == goal:
+                    no_of_wins += 1
+                    total_no_bets += game_bets_total
+                    bets_dict[f"Game {i}"] = (game_bets_total, 'won')
+                    break
+                if cash_in_hand == 0:
+                    total_no_bets += game_bets_total
+                    bets_dict[f"Game {i}"] = (game_bets_total, 'lost')
+                    break
+        average_bets_per_game = total_no_bets/repeat_no
+        win_percentage = no_of_wins/repeat_no*100
+        logging.info(f"No of games: {repeat_no}; average bets: {average_bets_per_game}; win_percentage: {win_percentage}\n Game bets details: {bets_dict}")
+                
