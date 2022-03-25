@@ -2,12 +2,15 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 25-03-2022 21:07:00
+    @Last Modified time: 25-03-2022 21:29:00
     @Title: Functionalities for various functional programs
 '''
 import logging
+from pickle import TRUE
 import random
 import sys
+
+from numpy import number
 
 class FunctionalPrograms:
 
@@ -103,6 +106,32 @@ class FunctionalPrograms:
                     return 0
             result = harmonic_no(user_input)
             logging.info(f"Harmonic no of {user_input} is {result}")
+        except ValueError:
+            logging.exception("Invalid input for number")
+            logging.warning("Input must be integer")
+    
+    def prime_factors():
+        """
+            Description:
+                Computes the prime factorization of N.
+        """
+        try:
+            user_input = int(input("Enter a number greater than 2: "))
+            if user_input <= 2:
+                logging.warning("Input number must be greater than 2")
+                return None
+            def prime(number):
+                if number >= 1 and number <= 3:
+                    return True
+                for i in range(2, int(number/2)):
+                    if number%i == 0:
+                        return False
+                return True
+            prime_factor_list = []
+            for i in range(1, user_input+1):
+                if prime(i) and user_input%i == 0:
+                    prime_factor_list.append(i)
+            logging.info(f"Prime factors of {user_input}: {prime_factor_list}")
         except ValueError:
             logging.exception("Invalid input for number")
             logging.warning("Input must be integer")
