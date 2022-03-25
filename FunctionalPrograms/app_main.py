@@ -12,4 +12,4 @@ from functional_programs import FunctionalPrograms
 file_path = r'C:\Users\Nishanth\Desktop\codingclub\CFP\Repos\Functional-Programs\FunctionalPrograms\Log files\functional_programs.log'
 logging.basicConfig(handlers=[logging.FileHandler(file_path, mode="a"), logging.StreamHandler(sys.stdout)], level=logging.INFO)
 
-FunctionalPrograms.leap_year()
+FunctionalPrograms.power_of_2()

@@ -7,6 +7,7 @@
 '''
 import logging
 import random
+import sys
 
 class FunctionalPrograms:
 
@@ -66,3 +67,20 @@ class FunctionalPrograms:
         except ValueError:
             logging.exception("Invalid input as year")
             logging.warning("Input must be integer")
+    
+    def power_of_2():
+        """
+            Description:
+                Takes a command-line argument N.
+                Prints a table of the powers of 2 that are less than or equal to 2^N.
+        """
+        try:
+            table_limit = int(sys.argv[1])
+            for i in range(table_limit):
+                logging.info(f"2^{i} = {2**i}")
+        except ValueError:
+            logging.exception("Invalid command line Argument")
+            logging.warning("Command line argument after name of python file must be integer")
+        except IndexError:
+            logging.exception("Command line argument not found")
+            logging.warning("Command line argument must be passed")
