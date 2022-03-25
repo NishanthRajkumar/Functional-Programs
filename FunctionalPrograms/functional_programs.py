@@ -2,7 +2,7 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 25-03-2022 19:31:00
+    @Last Modified time: 25-03-2022 21:07:00
     @Title: Functionalities for various functional programs
 '''
 import logging
@@ -84,3 +84,25 @@ class FunctionalPrograms:
         except IndexError:
             logging.exception("Command line argument not found")
             logging.warning("Command line argument must be passed")
+    
+    def harmonic_no():
+        """
+            Description:
+                Computes the Nth harmonic number.
+                N is obtained from user
+        """
+        try:
+            user_input = int(input("Enter a number: "))
+            def harmonic_no(number):
+                if number == 1:
+                    return 1
+                if number > 1:
+                    return (1/number)+harmonic_no(number-1)
+                if number < 1:
+                    logging.warning("input number must be greater than 0")
+                    return 0
+            result = harmonic_no(user_input)
+            logging.info(f"Harmonic no of {user_input} is {result}")
+        except ValueError:
+            logging.exception("Invalid input for number")
+            logging.warning("Input must be integer")
