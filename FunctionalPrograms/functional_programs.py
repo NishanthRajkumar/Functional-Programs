@@ -2,7 +2,7 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 24-03-2022 18:31:00
+    @Last Modified time: 25-03-2022 19:31:00
     @Title: Functionalities for various functional programs
 '''
 import logging
@@ -44,4 +44,25 @@ class FunctionalPrograms:
             logging.info(f"Percentage of head: {head_percentage}%; Percentage of tail: {tail_percentage}")
         except ValueError:
             logging.exception("Invalid input to no of flips")
+            logging.warning("Input must be integer")
+    
+    def leap_year():
+        """
+            Description:
+                checks if year entered by the user is a leap year or not
+        """
+        try:
+            while True:
+                year = input("Enter year(4 digit no only): ")
+                if len(year) != 4:
+                    logging.warning(f"user_input: {year}; year must be 4 digits")
+                    continue
+                year_as_int = int(year)
+                break
+            if year_as_int%4 == 0:
+                logging.info(f"{year_as_int} is a leap year")
+            else:
+                logging.info(f"{year_as_int} is not a leap year")
+        except ValueError:
+            logging.exception("Invalid input as year")
             logging.warning("Input must be integer")
