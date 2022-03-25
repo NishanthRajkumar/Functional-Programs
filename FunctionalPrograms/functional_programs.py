@@ -2,7 +2,7 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 25-03-2022 21:29:00
+    @Last Modified time: 25-03-2022 23:00:00
     @Title: Functionalities for various functional programs
 '''
 import logging
@@ -173,4 +173,22 @@ class FunctionalPrograms:
         average_bets_per_game = total_no_bets/repeat_no
         win_percentage = no_of_wins/repeat_no*100
         logging.info(f"No of games: {repeat_no}; average bets: {average_bets_per_game}; win_percentage: {win_percentage}\n Game bets details: {bets_dict}")
-                
+    
+    def coupon_generator():
+        """
+            Description:
+                Generate N distinct coupon numbers randomly.
+        """
+        try:
+            no_of_coupons_to_generate = input("Enter no of coupons to generate: ")
+            no_of_coupons = int(no_of_coupons_to_generate)
+            if no_of_coupons < 1:
+                logging.warning("The no of coupons to generate must be greater 1")
+                return None
+            range_upper_limit = 10**(len(no_of_coupons_to_generate)+1)
+            #coupons = set()
+            coupons = set(random.choices(range(range_upper_limit), k=no_of_coupons))
+            logging.info(f"{no_of_coupons} unique coupons: {coupons}")
+        except ValueError:
+            logging.exception("Invalid input for no of coupons to generate")
+            logging.warning("Input must be integer")
