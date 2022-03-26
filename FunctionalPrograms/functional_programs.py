@@ -2,14 +2,12 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 25-03-2022 23:00:00
+    @Last Modified time: 26-03-2022 08:38:00
     @Title: Functionalities for various functional programs
 '''
 import logging
 import random
 import sys
-
-from numpy import double
 
 class FunctionalPrograms:
 
@@ -227,3 +225,26 @@ class FunctionalPrograms:
         except ValueError:
             logging.exception("Invalid input for rows/columns")
             logging.warning("Input must be integer")
+    
+    def sum_of_3ints():
+        """
+            Description:
+                Input N integers and gets distinct triples that add to 0
+        """
+        try:
+            no_of_int = int(input("Enter no of int to input: "))
+            input_array = []
+            for i in range(no_of_int):
+                input_array.append(int(input(f"Array[{i}]: ")))
+            distinct_triples = set()
+            final_result = []
+            for i in range(no_of_int-2):
+                for j in range(i+1, no_of_int-1):
+                    for k in range(j+1, no_of_int):
+                        distinct_triples.add((input_array[i], input_array[j], input_array[k]))
+            for triples in distinct_triples:
+                if (triples[0]+triples[1]+triples[2]) == 0:
+                    final_result.append(triples)
+            logging.info(f"triples that sum to 0: {final_result}")
+        except ValueError:
+            logging.error("Input must be integer")
