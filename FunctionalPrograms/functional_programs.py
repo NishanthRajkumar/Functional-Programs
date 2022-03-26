@@ -2,7 +2,7 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 26-03-2022 09:19:00
+    @Last Modified time: 26-03-2022 21:24:00
     @Title: Functionalities for various functional programs
 '''
 from itertools import permutations
@@ -300,3 +300,74 @@ class FunctionalPrograms:
         input("StopWatch started! Hit enter to stop: ")
         end = time.time()
         logging.info(f"Stopwatch ran for {end-start}")
+    
+    def tictactoe():
+        """
+            Description:
+                play tic tac toe against computer.
+        """
+        #board = [['*']*3]*3
+        board = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
+        def get_board():
+            board_string = ""
+            for row in board:
+                board_string += row.__str__()
+                board_string += "\n"
+            return board_string
+        def get_available_indices():
+            available_indices = []
+            for i in range(3):
+                for j in range(3):
+                    if board[i][j] == '*':
+                        available_indices.append((i,j))
+            return available_indices
+        def user_play():
+            while True:
+                row = int(input("Enter row(1-3): ")) - 1
+                column = int(input("Enter column(1-3): ")) - 1
+                if (row>=0 and column<=3) is False:
+                    logging.warning("input must be between 1-3")
+                    continue
+                if (row,column) not in get_available_indices():
+                    logging.warning("Index already used. choose a different index")
+                    continue
+                board[row][column] = 'X'
+                break
+        def computer_play():
+            computer_choice = random.choice(get_available_indices())
+            board[computer_choice[0]][computer_choice[1]] = 'O'
+        def win_check():
+            for i in range(3):
+                if board[i][0] == board[i][1] == board[i][2] != '*':
+                    return True
+            for j in range(3):
+                if board[0][j] == board[1][j] == board[2][j] != '*':
+                    return True
+            if board[0][0] == board[1][1] == board[2][2] != '*' or board[0][2] == board[1][1] == board[2][0] != '*':
+                return True
+            return False
+        def draw_check():
+            if len(get_available_indices()) == 0:
+                logging.info(f"Board:\n{get_board}")
+                logging.info("Draw!")
+                return True
+            return False
+
+        while True:
+            print(get_board())
+            user_play()
+            if win_check():
+                logging.info(f"Board:\n{get_board()}")
+                logging.info("User won!")
+                return None
+            if draw_check():
+                return None
+            print(get_board())
+            print("Computer playing...")
+            computer_play()
+            if win_check():
+                logging.info(f"Board:\n{get_board()}")
+                logging.info("Computer won!")
+                return None
+            if draw_check():
+                return None
