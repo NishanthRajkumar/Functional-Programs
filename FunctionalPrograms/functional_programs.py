@@ -2,9 +2,10 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 26-03-2022 08:50:00
+    @Last Modified time: 26-03-2022 09:19:00
     @Title: Functionalities for various functional programs
 '''
+from itertools import permutations
 import logging
 import math
 import random
@@ -266,3 +267,25 @@ class FunctionalPrograms:
             logging.info(f"Distance of ({x},{y}) from (0,0): {distance}")
         except ValueError:
             logging.error("Cmd argument passed must be integer")
+    
+    def string_permutation():
+        """
+            Description:
+                finds all permutation of 2 strings and checks if the resulting arrays are equal
+        """
+        string1 = input("Enter 1st string: ")
+        string2 = input("Enter 2nd string: ")
+        if len(string1) != len(string2):
+            logging.info("The permutations of the 2 strings ({string1}, {string2}) are not equal")
+            return None
+        string1_set = set()
+        string2_set = set()
+        for permutation in permutations(string1):
+            string1_set.add("".join(permutation))
+        for permutation in permutations(string2):
+            string2_set.add("".join(permutation))
+        difference  = string1_set - string2_set
+        if len(difference) == 0:
+            logging.info(f"The permutations of the 2 strings ({string1}, {string2}) are equal")
+        else:
+            logging.info(f"The permutations of the 2 strings ({string1}, {string2}) are not equal")
