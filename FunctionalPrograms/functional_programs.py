@@ -2,7 +2,7 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 26-03-2022 12:55:00
+    @Last Modified time: 26-03-2022 13:23:00
     @Title: Functionalities for various functional programs
 '''
 from itertools import permutations
@@ -395,3 +395,22 @@ class FunctionalPrograms:
         except ValueError:
             logging.exception("invalid input")
             logging.warning("Input must be integer")
+    
+    def wind_chill():
+        """
+            Description:
+                gets the effective temperature based on wind speed and temperature(in Fahrenheit)
+        """
+        if len(sys.argv) < 3:
+            logging.error("invalid no of cmd line arguments")
+            return None
+        try:
+            temperature = float(sys.argv[1])
+            wind_speed = float(sys.argv[2])
+            if math.fabs(temperature) > 50 or wind_speed > 120 or wind_speed < 3:
+                logging.warning("Inputed values exceed allowed range")
+                return None
+            effective_temperature = 35.74 + (0.6215*temperature) + (((0.4275*temperature) - 35.75)*math.pow(wind_speed, 0.16))
+            logging.info(f"Temperature: {temperature}, Wind speed: {wind_speed}; Effective temperature: {effective_temperature}")
+        except ValueError:
+            logging.error("Cmd argument passed must be float/double")
