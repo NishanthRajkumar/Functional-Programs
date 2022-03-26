@@ -2,7 +2,7 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 26-03-2022 21:24:00
+    @Last Modified time: 26-03-2022 12:55:00
     @Title: Functionalities for various functional programs
 '''
 from itertools import permutations
@@ -371,3 +371,27 @@ class FunctionalPrograms:
                 return None
             if draw_check():
                 return None
+    
+    def quadratic_eq():
+        """
+            Description:
+                solves the quadratic equation (ax^2 + bx + c)
+        """
+        print(r"Enter values for (a,b,c) for the equation (ax^2 + bx + c)")
+        try:
+            a = int(input("a: "))
+            b = int(input("b: "))
+            c = int(input("c: "))
+            delta = (b**2) - (4*a*c)
+            if delta < 0:
+                real_part = -b/(2*a)
+                complex_part = delta
+                root1 = complex(real_part, complex_part)
+                root2 = complex(real_part, -complex_part)
+            else:
+                root1 = (-b + math.sqrt(delta))/(2*a)
+                root2 = (-b - math.sqrt(delta))/(2*a)
+            logging.info(f"Eq: {a}x^2 + {b}x + {c}; root1: {root1}, root2:{root2}")
+        except ValueError:
+            logging.exception("invalid input")
+            logging.warning("Input must be integer")
