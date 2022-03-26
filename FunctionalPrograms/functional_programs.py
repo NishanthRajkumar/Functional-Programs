@@ -2,10 +2,11 @@
     @Author: Nishanth
     @Date: 25-03-2022 18:31:00
     @Last Modified by: Nishanth
-    @Last Modified time: 26-03-2022 08:38:00
+    @Last Modified time: 26-03-2022 08:50:00
     @Title: Functionalities for various functional programs
 '''
 import logging
+import math
 import random
 import sys
 
@@ -248,3 +249,20 @@ class FunctionalPrograms:
             logging.info(f"triples that sum to 0: {final_result}")
         except ValueError:
             logging.error("Input must be integer")
+    
+    def distance():
+        """
+            Description:
+                Gets x and y from cmd line arguments.
+                Computes distance between (x,y) and (0,0)
+        """
+        if len(sys.argv) < 3:
+            logging.error("invalid no of cmd line arguments")
+            return None
+        try:
+            x = int(sys.argv[1])
+            y = int(sys.argv[2])
+            distance = math.sqrt((x**2)+(y**2))
+            logging.info(f"Distance of ({x},{y}) from (0,0): {distance}")
+        except ValueError:
+            logging.error("Cmd argument passed must be integer")
