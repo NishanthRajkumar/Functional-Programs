@@ -10,6 +10,7 @@ import logging
 import math
 import random
 import sys
+import time
 
 class FunctionalPrograms:
 
@@ -289,3 +290,13 @@ class FunctionalPrograms:
             logging.info(f"The permutations of the 2 strings ({string1}, {string2}) are equal")
         else:
             logging.info(f"The permutations of the 2 strings ({string1}, {string2}) are not equal")
+    
+    def stopwatch():
+        """
+            Description:
+                Simulate stopwatch program
+        """
+        start = time.time()
+        input("StopWatch started! Hit enter to stop: ")
+        end = time.time()
+        logging.info(f"Stopwatch ran for {end-start}")
