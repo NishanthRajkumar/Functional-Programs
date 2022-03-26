@@ -9,6 +9,8 @@ import logging
 import random
 import sys
 
+from numpy import double
+
 class FunctionalPrograms:
 
     def greeting():
@@ -191,4 +193,37 @@ class FunctionalPrograms:
             logging.info(f"{no_of_coupons} unique coupons: {coupons}")
         except ValueError:
             logging.exception("Invalid input for no of coupons to generate")
+            logging.warning("Input must be integer")
+    
+    def input_2d_array():
+        """
+            Description:
+                input integer, double and boolean values in MxN array
+        """
+        try:
+            rows = int(input("Enter no of rows: "))
+            columns = int(input("Enter no of columns: "))
+            array_result = []
+            for i in range(rows):
+                column = []
+                for j in range(columns):
+                    input_value = input(f"Array[{i}][{j}]: ")
+                    try:
+                        final_value = int(input_value)
+                    except:
+                        try:
+                            final_value = float(input_value)
+                        except:
+                            if input_value.capitalize() == "True":
+                                final_value = True
+                            elif input_value.capitalize() == "False":
+                                final_value = False
+                            else:
+                                logging.error("Input to array was not int float or bool")
+                                return None
+                    column.append(final_value)
+                array_result.append(column)
+            logging.info(f"Final 2d array: {array_result}")
+        except ValueError:
+            logging.exception("Invalid input for rows/columns")
             logging.warning("Input must be integer")
