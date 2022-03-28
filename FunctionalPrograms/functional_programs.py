@@ -123,12 +123,12 @@ class FunctionalPrograms:
             def prime(number):
                 if number >= 1 and number <= 3:
                     return True
-                for i in range(2, int(number/2)):
+                for i in range(2, int(number/2) + 1):
                     if number%i == 0:
                         return False
                 return True
             prime_factor_list = []
-            for i in range(1, user_input+1):
+            for i in range(2, user_input):
                 if prime(i) and user_input%i == 0:
                     prime_factor_list.append(i)
             logging.info(f"Prime factors of {user_input}: {prime_factor_list}")
