@@ -59,7 +59,7 @@ class FunctionalPrograms:
                     continue
                 year_as_int = int(year)
                 break
-            if year_as_int%4 == 0:
+            if year_as_int%4 == 0 and (year_as_int%100 != 0 or year_as_int%400 == 0):
                 logging.info(f"{year_as_int} is a leap year")
             else:
                 logging.info(f"{year_as_int} is not a leap year")
