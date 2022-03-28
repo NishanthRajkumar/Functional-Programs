@@ -18,6 +18,12 @@ class FunctionalPrograms:
         """
             Description:
                 Greets the user based on the username entered by the user
+            
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         while True:
             username = input("Enter User name: ")
@@ -32,6 +38,12 @@ class FunctionalPrograms:
             Description:
                 Computes the percentage of Heads and Tails in n number of flips.
                 value of n is entered by user
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             no_of_flips = int(input("Enter total no of times to flip: "))
@@ -54,6 +66,12 @@ class FunctionalPrograms:
         """
             Description:
                 checks if year entered by the user is a leap year or not
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             while True:
@@ -76,6 +94,12 @@ class FunctionalPrograms:
             Description:
                 Takes a command-line argument N.
                 Prints a table of the powers of 2 that are less than or equal to 2^N.
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             table_limit = int(sys.argv[1])
@@ -93,6 +117,12 @@ class FunctionalPrograms:
             Description:
                 Computes the Nth harmonic number.
                 N is obtained from user
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             user_input = int(input("Enter a number: "))
@@ -114,6 +144,12 @@ class FunctionalPrograms:
         """
             Description:
                 Computes the prime factorization of N.
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             user_input = int(input("Enter a number greater than 2: "))
@@ -141,6 +177,12 @@ class FunctionalPrograms:
             Description:
                 Simulates a gambler who start with $stake and place fair $1 bets until goes broke or reach $goal. 
                 Keeps track of the number of wins and the number of bets.
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         bets_dict = {}
         no_of_wins = 0
@@ -181,6 +223,12 @@ class FunctionalPrograms:
         """
             Description:
                 Generate N distinct coupon numbers randomly.
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             no_of_coupons_to_generate = input("Enter no of coupons to generate: ")
@@ -200,6 +248,12 @@ class FunctionalPrograms:
         """
             Description:
                 input integer, double and boolean values in MxN array
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             rows = int(input("Enter no of rows: "))
@@ -233,6 +287,12 @@ class FunctionalPrograms:
         """
             Description:
                 Input N integers and gets distinct triples that add to 0
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         try:
             no_of_int = int(input("Enter no of int to input: "))
@@ -257,6 +317,12 @@ class FunctionalPrograms:
             Description:
                 Gets x and y from cmd line arguments.
                 Computes distance between (x,y) and (0,0)
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         if len(sys.argv) < 3:
             logging.error("invalid no of cmd line arguments")
@@ -273,6 +339,12 @@ class FunctionalPrograms:
         """
             Description:
                 finds all permutation of 2 strings and checks if the resulting arrays are equal
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         string1 = input("Enter 1st string: ")
         string2 = input("Enter 2nd string: ")
@@ -295,6 +367,12 @@ class FunctionalPrograms:
         """
             Description:
                 Simulate stopwatch program
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         start = time.time()
         input("StopWatch started! Hit enter to stop: ")
@@ -305,6 +383,12 @@ class FunctionalPrograms:
         """
             Description:
                 play tic tac toe against computer.
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         #board = [['*']*3]*3
         board = [['*', '*', '*'], ['*', '*', '*'], ['*', '*', '*']]
@@ -376,6 +460,12 @@ class FunctionalPrograms:
         """
             Description:
                 solves the quadratic equation (ax^2 + bx + c)
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         print(r"Enter values for (a,b,c) for the equation (ax^2 + bx + c)")
         try:
@@ -400,6 +490,12 @@ class FunctionalPrograms:
         """
             Description:
                 gets the effective temperature based on wind speed and temperature(in Fahrenheit)
+                
+            Paramter:
+                None
+            
+            Return:
+                None
         """
         if len(sys.argv) < 3:
             logging.error("invalid no of cmd line arguments")
